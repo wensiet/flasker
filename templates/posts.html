@@ -1,0 +1,13 @@
+{% block body %}
+<div>
+    <h2>All articles</h2>
+    {% for element in articles %}
+    <div class="alert">
+        <h2>{{ element.title }}</h2>
+        <p>{{ element.intro }}</p>
+        <p><b>Date: {{ element.date.date() }}</b></p>
+        <a href="/posts/{{ element.id }}">Show text</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
