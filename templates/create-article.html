@@ -1,11 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+Creating Article
+{% endblock %}
+
 {% block body %}
 <div class="wrapper">
     <h1>Adding an article</h1>
-    <form method="post">
-        <input type="text" name="title" id="title" placeholder="Insert title here"><br>
-        <textarea name="intro" id="intro" placeholder="Insert intro here"></textarea><br>
-        <textarea name="text" id="text" placeholder="Insert text here"></textarea><br>
-        <input type="submit" value="Send">
+    <form method="post" class="input-group-lg">
+        <input type="text" name="title" id="title" placeholder="Insert title here" class="form-label"><br>
+        <textarea name="intro" id="intro" placeholder="Insert intro here" class="form-label"></textarea><br>
+        <textarea name="text" id="text" placeholder="Insert text here" class="form-label"></textarea><br>
+        <input type="submit" value="Send" class="btn btn-success">
     </form>
 </div>
 {% endblock %}

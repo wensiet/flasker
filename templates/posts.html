@@ -1,12 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+All Articles
+{% endblock %}
+
 {% block body %}
 <div>
-    <h2>All articles</h2>
     {% for element in articles %}
-    <div class="alert">
+    <div class="alert form form-control">
         <h2>{{ element.title }}</h2>
         <p>{{ element.intro }}</p>
         <p><b>Date: {{ element.date.date() }}</b></p>
-        <a href="/posts/{{ element.id }}">Show text</a>
+        <a href="/posts/{{ element.id }}" class="btn btn-success">Show text</a>
+        <a href="/posts/delete/{{element.id}}" class="btn btn-danger">Delete an article</a>
     </div>
     {% endfor %}
 </div>

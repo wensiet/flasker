@@ -35,10 +35,10 @@ def create_article():
         try:
             db.session.add(article)
             db.session.commit()
-            return redirect('/')
+            return redirect('/posts')
         except:
             return "Error while adding article."
-        pass  # TODO обработать пост запрос и добавить хуету в БД
+        # TODO обработать пост запрос и добавить хуету в БД
     else:
         return render_template("create-article.html")
 
@@ -53,6 +53,17 @@ def posts():
 def post_detailed(id):
     article = Article.query.get(id)
     return render_template('post_detailed.html', article=article)
+
+
+@app.route('/posts/delete/<int:id>')
+def delete_post(id):
+    article = Article.query.get_or_404(id)
+    try:
+        db.session.delete(article)
+        db.session.commit()
+        return redirect('/posts')
+    except Exception:
+        return "There is no such article."
 
 
 if __name__ == "__main__":
